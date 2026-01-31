@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Blogs on DocFind Test Site</title>
-    <link>http://localhost:1314/blog/</link>
+    <link>http://localhost:50803/blog/</link>
     <description>Recent content in Blogs on DocFind Test Site</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Wed, 31 Jan 2024 09:00:00 -0800</lastBuildDate>
-    <atom:link href="http://localhost:1314/blog/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:50803/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>The Future of Search</title>
-      <link>http://localhost:1314/blog/future/</link>
+      <link>http://localhost:50803/blog/future/</link>
       <pubDate>Wed, 31 Jan 2024 09:00:00 -0800</pubDate>
-      <guid>http://localhost:1314/blog/future/</guid>
+      <guid>http://localhost:50803/blog/future/</guid>
       <description>Search is Changing With WebAssembly, we can move search logic to the client. This reduces server load and protects privacy.&#xA;Why DocFind? Rust-powered speed Compact index size Easy integration </description>
     </item>
     <item>
       <title>Search Canary Antigravity</title>
-      <link>http://localhost:1314/blog/canary/</link>
+      <link>http://localhost:50803/blog/canary/</link>
       <pubDate>Mon, 02 Jan 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1314/blog/canary/</guid>
+      <guid>http://localhost:50803/blog/canary/</guid>
       <description>This is a test post to verify indexing. The magic word is Antigravity. Also searching for Supercalifragilistic. Banana Apple Orange.</description>
     </item>
     <item>
       <title>Lorem Ipsum Stress Test</title>
-      <link>http://localhost:1314/blog/lorem/</link>
+      <link>http://localhost:50803/blog/lorem/</link>
       <pubDate>Sun, 01 Jan 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1314/blog/lorem/</guid>
+      <guid>http://localhost:50803/blog/lorem/</guid>
       <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&#xA;Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</description>
     </item>
   </channel>

@@ -94,3 +94,34 @@ The build script handles the full build process if the server isn't running.
 ./bin/build_search.sh # Linux/Mac
 ```
 This will build your site into `public/` and generate the search assets in `static/docfind/`.
+
+## Testing
+
+Run the automated test suite to validate the module (requires Node.js):
+
+```bash
+# Run all 17 tests
+npm test
+
+# Run specific test suites
+npm run test:build   # Hugo build validation
+npm run test:json    # search.json output validation  
+npm run test:html    # HTML partial rendering
+
+# Or use shell scripts directly
+./test/test.sh       # Mac/Linux
+test\test.bat        # Windows
+```
+
+**Test coverage:**
+| Suite | Validates |
+|-------|-----------|
+| Build | Hugo compiles without errors |
+| JSON | Valid structure, required fields, relative URLs |
+| HTML | CSS, inputs, widgets, scripts, accessibility |
+| Assets | WASM/JS files exist in static/docfind/ |
+
+## License
+
+[MIT](LICENSE)
+

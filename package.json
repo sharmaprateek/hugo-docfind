@@ -1,0 +1,13 @@
+{
+  "name": "hugo-docfind-tests",
+  "version": "1.0.0",
+  "description": "Test suite for Hugo DocFind module",
+  "private": true,
+  "scripts": {
+    "test": "node test/run-tests.js",
+    "test:build": "node test/run-tests.js --only build",
+    "test:json": "node test/run-tests.js --only json",
+    "test:html": "node test/run-tests.js --only html"
+  },
+  "devDependencies": {}
+}

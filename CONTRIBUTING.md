@@ -26,6 +26,28 @@ In another terminal, run the build script to generate search assets:
 ../bin/build_search.sh
 ```
 
+## Running Tests
+
+Before submitting a PR, run the test suite:
+
+```bash
+# Prerequisites: Node.js required
+npm test
+```
+
+The test suite runs 17 automated checks:
+- **Build tests**: Hugo compiles without errors
+- **JSON tests**: `search.json` structure and content validation
+- **HTML tests**: Partials render with correct elements and accessibility
+- **Asset tests**: WASM/JS files exist in static/docfind/
+
+Run specific test suites with:
+```bash
+npm run test:build   # Build only
+npm run test:json    # JSON validation
+npm run test:html    # HTML checks
+```
+
 ## Pull Requests
 
 1. Create a feature branch from `main`
