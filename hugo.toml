@@ -1,5 +1,5 @@
 [module]
-  path = "github.com/docfind/hugo-module"
+  path = "github.com/sharmaprateek/hugo-docfind"
 
 [outputs]
   home = ["HTML", "RSS", "SearchIndex"]

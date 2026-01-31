@@ -1,0 +1,25 @@
+# Hugo build artifacts
+public/
+resources/
+.hugo_build.lock
+
+# DocFind generated assets (run build script to regenerate)
+static/docfind/
+exampleSite/static/docfind/
+
+# Temporary files
+temp_search.json
+
+# Downloaded binaries
+bin/docfind
+bin/docfind.exe
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo

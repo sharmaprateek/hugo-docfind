@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1314&amp;path=livereload" data-no-instant defer></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Future of Search</title>
@@ -228,7 +228,7 @@
 <body>
     
 <div style="max-width: 800px; margin: 2rem auto; padding: 0 1rem; font-family: sans-serif;">
-    <a href="http://localhost:1313/">&larr; Back to Home</a>
+    <a href="http://localhost:1314/">&larr; Back to Home</a>
     <h1>The Future of Search</h1>
     <div style="color: #666; margin-bottom: 2rem;">
         Jan 31, 2024 | Category: blog 
@@ -249,10 +249,10 @@ This reduces server load and protects privacy.</p>
 
     <script type="module">
     
-    import search, { init } from '\/docfind\/docfind.js?v=1769790712';
+    import search, { init } from '\/docfind\/docfind.js?v=1769889394';
 
     
-    await init('\/docfind\/docfind_bg.wasm?v=1769790712');
+    await init('\/docfind\/docfind_bg.wasm?v=1769889394');
 
     
 
@@ -326,25 +326,17 @@ This reduces server load and protects privacy.</p>
 
     if (expBtn && expWidget && expInput) {
         expBtn.addEventListener('click', (e) => {
-            
             e.preventDefault();
-
             const isExpanded = expWidget.classList.contains('expanded');
 
             if (isExpanded) {
-                
-                
-                
                 if (expInput.value.trim() === '') {
                     expWidget.classList.remove('expanded');
                 } else {
-                    
-                    
                     expInput.focus();
                 }
             } else {
                 expWidget.classList.add('expanded');
-                
                 setTimeout(() => expInput.focus(), 50);
             }
         });
@@ -352,12 +344,6 @@ This reduces server load and protects privacy.</p>
         
         document.addEventListener('click', (e) => {
             if (!expWidget.contains(e.target)) {
-                if (expInput.value.trim() === '') {
-                    expWidget.classList.remove('expanded');
-                }
-                
-                
-                
                 expWidget.classList.remove('expanded');
             }
         });

@@ -1,6 +1,10 @@
 # Hugo DocFind Module
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
 Seamless integration of [Microsoft DocFind](https://github.com/microsoft/docfind) for Hugo sites.
+
+**Author**: [Prateek Sharma](https://www.sharmaprateek.com)
 
 ## Features
 - **High Performance**: WebAssembly-based client-side search.

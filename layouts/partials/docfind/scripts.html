@@ -78,25 +78,17 @@
 
     if (expBtn && expWidget && expInput) {
         expBtn.addEventListener('click', (e) => {
-            // Prevent submitting if in a form, though usually it's just a button
             e.preventDefault();
-
             const isExpanded = expWidget.classList.contains('expanded');
 
             if (isExpanded) {
-                // Check if input has value before closing? 
-                // Behavior: If expanded and empty, close. If has value, maybe search?
-                // For now, simple toggle.
                 if (expInput.value.trim() === '') {
                     expWidget.classList.remove('expanded');
                 } else {
-                    // Could treat as "submit", but real-time search runs on input.
-                    // Maybe focus back?
                     expInput.focus();
                 }
             } else {
                 expWidget.classList.add('expanded');
-                // Wait for transition slightly or focus immediately
                 setTimeout(() => expInput.focus(), 50);
             }
         });
@@ -104,12 +96,6 @@
         // Close when clicking outside
         document.addEventListener('click', (e) => {
             if (!expWidget.contains(e.target)) {
-                if (expInput.value.trim() === '') {
-                    expWidget.classList.remove('expanded');
-                }
-                // If it has value, keep it open so user doesn't lose search state accidentally?
-                // Or close it? User requirement: "expands inline". Usually collapses on blur.
-                // Let's collapse if click outside.
                 expWidget.classList.remove('expanded');
             }
         });

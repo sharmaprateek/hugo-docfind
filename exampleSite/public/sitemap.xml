@@ -2,39 +2,39 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/categories/blog/</loc>
+    <loc>http://localhost:1314/categories/blog/</loc>
     <lastmod>2024-01-31T09:00:00-08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/</loc>
+    <loc>http://localhost:1314/blog/</loc>
     <lastmod>2024-01-31T09:00:00-08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/</loc>
+    <loc>http://localhost:1314/categories/</loc>
     <lastmod>2024-01-31T09:00:00-08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/</loc>
+    <loc>http://localhost:1314/</loc>
     <lastmod>2024-01-31T09:00:00-08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/future/</loc>
+    <loc>http://localhost:1314/blog/future/</loc>
     <lastmod>2024-01-31T09:00:00-08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/docs/</loc>
+    <loc>http://localhost:1314/docs/</loc>
     <lastmod>2024-01-30T10:00:00-08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/docs/</loc>
+    <loc>http://localhost:1314/categories/docs/</loc>
     <lastmod>2024-01-30T10:00:00-08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/docs/install/</loc>
+    <loc>http://localhost:1314/docs/install/</loc>
     <lastmod>2024-01-30T10:00:00-08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/hello/</loc>
+    <loc>http://localhost:1314/hello/</loc>
     <lastmod>2024-01-29T12:00:00-08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/canary/</loc>
+    <loc>http://localhost:1314/blog/canary/</loc>
     <lastmod>2023-01-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/lorem/</loc>
+    <loc>http://localhost:1314/blog/lorem/</loc>
     <lastmod>2023-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/</loc>
+    <loc>http://localhost:1314/tags/</loc>
   </url>
 </urlset>
