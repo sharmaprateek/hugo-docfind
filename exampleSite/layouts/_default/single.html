@@ -1,0 +1,12 @@
+{{ define "main" }}
+<div style="max-width: 800px; margin: 2rem auto; padding: 0 1rem; font-family: sans-serif;">
+    <a href="{{ .Site.BaseURL }}">&larr; Back to Home</a>
+    <h1>{{ .Title }}</h1>
+    <div style="color: #666; margin-bottom: 2rem;">
+        {{ .Date.Format "Jan 2, 2006" }} | Category: {{ range .Params.categories }}{{ . }} {{ end }}
+    </div>
+    <div style="line-height: 1.6;">
+        {{ .Content }}
+    </div>
+</div>
+{{ end }}

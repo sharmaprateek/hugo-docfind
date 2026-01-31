@@ -1,0 +1,16 @@
+{{ define "main" }}
+<div style="max-width: 800px; margin: 2rem auto; padding: 0 1rem; font-family: sans-serif;">
+    <a href="{{ .Site.BaseURL }}">&larr; Back to Home</a>
+    <h1>{{ .Title }}</h1>
+
+    <ul>
+        {{ range .Pages }}
+        <li>
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+            <br>
+            <small>{{ .Summary }}</small>
+        </li>
+        {{ end }}
+    </ul>
+</div>
+{{ end }}

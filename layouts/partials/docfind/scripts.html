@@ -1,0 +1,151 @@
+<script type="module">
+    // Use relURL to ensure correct pathing for sub-sites
+    import search, { init } from '{{ "docfind/docfind.js" | relURL }}?v={{ now.Unix }}';
+
+    // Force initialization with fresh WASM file
+    await init('{{ "docfind/docfind_bg.wasm" | relURL }}?v={{ now.Unix }}');
+
+    /**
+     * Reusable function to attach search logic to an input/results pair.
+     */
+    function attachSearchLogic(inputId, resultsId) {
+        const input = document.getElementById(inputId);
+        const resultsDiv = document.getElementById(resultsId);
+
+        if (!input || !resultsDiv) return;
+
+        input.addEventListener('input', async (e) => {
+            const query = e.target.value.trim();
+
+            if (query.length < 2) {
+                resultsDiv.innerHTML = '';
+                // Only hide if NOT inside a modal (modals handle visibility differently)
+                // But for simplicity, we can just clear content.
+                if (!resultsDiv.classList.contains('docfind-results-modal-container')) {
+                    resultsDiv.style.display = 'none';
+                }
+                return;
+            }
+
+            try {
+                const results = await search(query, 50);
+
+                if (!results || results.length === 0) {
+                    resultsDiv.innerHTML = '<div class="docfind-no-results">No results found.</div>';
+                } else {
+                    resultsDiv.innerHTML = results.slice(0, 10).map(r => `
+                        <a href="${r.href}" class="docfind-result-item">
+                            <div class="docfind-result-title">${r.title}</div>
+                            <div class="docfind-result-snippet">${r.body ? r.body.substring(0, 100) + '...' : ''}</div>
+                            ${r.category ? `<div class="docfind-result-category">${r.category}</div>` : ''}
+                        </a>
+                    `).join('');
+                }
+                resultsDiv.style.display = 'block';
+            } catch (err) {
+                console.error("DocFind search error:", err);
+            }
+        });
+
+        // Hide results on click outside (General behavior)
+        document.addEventListener('click', (e) => {
+            const container = input.closest('.docfind-container, .docfind-widget, .docfind-modal-content');
+            if (container && !container.contains(e.target)) {
+                resultsDiv.style.display = 'none';
+            }
+        });
+
+        // Show results on focus if content exists
+        input.addEventListener('focus', () => {
+            if (resultsDiv.innerHTML) resultsDiv.style.display = 'block';
+        });
+    }
+
+    // 1. Attach to Inline Search (if exists)
+    attachSearchLogic('docfind-input', 'docfind-results');
+
+    // 2. Attach to Modal Search (if exists)
+    attachSearchLogic('docfind-input-modal', 'docfind-results-modal');
+
+
+    // 3. Attach to Expandable Search
+    attachSearchLogic('docfind-input-expandable', 'docfind-results-expandable');
+
+    // --- Expandable Widget Control ---
+    const expWidget = document.getElementById('docfind-expandable');
+    const expBtn = document.getElementById('docfind-expandable-btn');
+    const expInput = document.getElementById('docfind-input-expandable');
+
+    if (expBtn && expWidget && expInput) {
+        expBtn.addEventListener('click', (e) => {
+            // Prevent submitting if in a form, though usually it's just a button
+            e.preventDefault();
+
+            const isExpanded = expWidget.classList.contains('expanded');
+
+            if (isExpanded) {
+                // Check if input has value before closing? 
+                // Behavior: If expanded and empty, close. If has value, maybe search?
+                // For now, simple toggle.
+                if (expInput.value.trim() === '') {
+                    expWidget.classList.remove('expanded');
+                } else {
+                    // Could treat as "submit", but real-time search runs on input.
+                    // Maybe focus back?
+                    expInput.focus();
+                }
+            } else {
+                expWidget.classList.add('expanded');
+                // Wait for transition slightly or focus immediately
+                setTimeout(() => expInput.focus(), 50);
+            }
+        });
+
+        // Close when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!expWidget.contains(e.target)) {
+                if (expInput.value.trim() === '') {
+                    expWidget.classList.remove('expanded');
+                }
+                // If it has value, keep it open so user doesn't lose search state accidentally?
+                // Or close it? User requirement: "expands inline". Usually collapses on blur.
+                // Let's collapse if click outside.
+                expWidget.classList.remove('expanded');
+            }
+        });
+    }
+
+    // --- Modal Control Logic ---
+    const modal = document.getElementById('docfind-modal');
+    const launcher = document.getElementById('docfind-launcher');
+    const closeBtn = document.getElementById('docfind-close');
+    const modalInput = document.getElementById('docfind-input-modal');
+
+    function openModal() {
+        if (modal) {
+            modal.style.display = 'flex';
+            if (modalInput) modalInput.focus();
+        }
+    }
+
+    function closeModal() {
+        if (modal) modal.style.display = 'none';
+    }
+
+    if (launcher) launcher.addEventListener('click', openModal);
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeModal();
+        if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+            e.preventDefault();
+            openModal();
+        }
+    });
+
+    if (modal) {
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+    }
+</script>

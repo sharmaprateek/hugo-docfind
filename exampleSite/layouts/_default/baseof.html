@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="{{ or .Site.Language.LanguageCode .Site.Language.Lang }}">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ .Title }}</title>
+    {{ partial "docfind/head.html" . }}
+</head>
+
+<body>
+    {{ block "main" . }}{{ end }}
+    {{ partial "docfind/scripts.html" . }}
+</body>
+
+</html>

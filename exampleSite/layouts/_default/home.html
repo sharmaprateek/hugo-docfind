@@ -1,0 +1,31 @@
+{{ define "main" }}
+<div style="font-family: sans-serif;">
+    <!-- Fake Navbar for Demo -->
+    <header
+        style="background: #333; color: white; padding: 1rem; display: flex; justify-content: space-between; align-items: center;">
+        <div style="font-weight: bold; font-size: 1.2rem;">DocFind Demo</div>
+        <div style="display: flex; gap: 1rem; align-items: center;">
+            <a href="#" style="color: #ddd; text-decoration: none;">Docs</a>
+            <a href="#" style="color: #ddd; text-decoration: none;">Blog</a>
+            <!-- Search Widget -->
+            {{ partial "docfind/search-expandable.html" . }}
+        </div>
+    </header>
+
+    <div style="max-width: 800px; margin: 2rem auto; padding: 0 1rem;">
+        <h1>{{ .Title }}</h1>
+        {{ .Content }}
+
+        <div style="margin: 2rem 0; padding: 2rem; background: #f8f9fa; border-radius: 8px;">
+            <h2>Try the Search</h2>
+            {{ partial "docfind/search.html" . }}
+        </div>
+
+        <h2>Latest Content</h2>
+        <ul>
+            {{ range .Site.RegularPages }}
+            <li><a href="{{ .RelPermalink }}">{{ .Title }}</a> ({{ .Section }})</li>
+            {{ end }}
+        </ul>
+    </div>
+    {{ end }}
