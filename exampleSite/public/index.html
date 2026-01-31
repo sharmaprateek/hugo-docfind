@@ -280,8 +280,6 @@
             
             <li><a href="/hello/">Hello DocFind</a> ()</li>
             
-            <li><a href="/blog/canary/">Search Canary Antigravity</a> (blog)</li>
-            
             <li><a href="/blog/lorem/">Lorem Ipsum Stress Test</a> (blog)</li>
             
         </ul>
@@ -289,10 +287,10 @@
     
     <script type="module">
     
-    import search, { init } from '\/docfind\/docfind.js?v=1769900219';
+    import search, { init } from '\/docfind\/docfind.js?v=1769900926';
 
     
-    await init('\/docfind\/docfind_bg.wasm?v=1769900219');
+    await init('\/docfind\/docfind_bg.wasm?v=1769900926');
 
     
 
@@ -448,10 +446,32 @@
     if (closeBtn) closeBtn.addEventListener('click', closeModal);
 
     document.addEventListener('keydown', (e) => {
+        const isTyping = document.activeElement.tagName === 'INPUT' ||
+            document.activeElement.tagName === 'TEXTAREA' ||
+            document.activeElement.isContentEditable;
+
         if (e.key === 'Escape') closeModal();
         if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
             e.preventDefault();
             openModal();
+        }
+        if (e.key === '/' && !isTyping) {
+            e.preventDefault();
+
+            
+            if (modal && launcher) {
+                openModal();
+            }
+            
+            else if (expWidget && expInput) {
+                expWidget.classList.add('expanded');
+                expInput.focus();
+            }
+            
+            else {
+                const inlineInput = document.getElementById('docfind-input');
+                if (inlineInput) inlineInput.focus();
+            }
         }
     });
 

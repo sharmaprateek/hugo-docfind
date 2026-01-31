@@ -160,10 +160,32 @@
     if (closeBtn) closeBtn.addEventListener('click', closeModal);
 
     document.addEventListener('keydown', (e) => {
+        const isTyping = document.activeElement.tagName === 'INPUT' ||
+            document.activeElement.tagName === 'TEXTAREA' ||
+            document.activeElement.isContentEditable;
+
         if (e.key === 'Escape') closeModal();
         if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
             e.preventDefault();
             openModal();
+        }
+        if (e.key === '/' && !isTyping) {
+            e.preventDefault();
+
+            // Priority 1: Open Modal if exists
+            if (modal && launcher) {
+                openModal();
+            }
+            // Priority 2: Expand Widget if exists (and no modal)
+            else if (expWidget && expInput) {
+                expWidget.classList.add('expanded');
+                expInput.focus();
+            }
+            // Priority 3: Focus Inline Input
+            else {
+                const inlineInput = document.getElementById('docfind-input');
+                if (inlineInput) inlineInput.focus();
+            }
         }
     });
 

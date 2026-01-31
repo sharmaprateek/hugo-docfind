@@ -16,13 +16,6 @@
       <description>Search is Changing With WebAssembly, we can move search logic to the client. This reduces server load and protects privacy.&#xA;Why DocFind? Rust-powered speed Compact index size Easy integration </description>
     </item>
     <item>
-      <title>Search Canary Antigravity</title>
-      <link>http://localhost:50803/blog/canary/</link>
-      <pubDate>Mon, 02 Jan 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:50803/blog/canary/</guid>
-      <description>This is a test post to verify indexing. The magic word is Antigravity. Also searching for Supercalifragilistic. Banana Apple Orange.</description>
-    </item>
-    <item>
       <title>Lorem Ipsum Stress Test</title>
       <link>http://localhost:50803/blog/lorem/</link>
       <pubDate>Sun, 01 Jan 2023 00:00:00 +0000</pubDate>
