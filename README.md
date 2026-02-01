@@ -12,6 +12,10 @@ Seamless integration of [Microsoft DocFind](https://github.com/microsoft/docfind
 - **Zero Config**: Automatically generates the required search index.
 - **Smart Build**: Works with `hugo server` or static builds.
 
+## Guides
+- [PaperMod Integration Guide](docs/integration-papermod.md) - Detailed setup for Hugo PaperMod.
+
+
 ## Installation
 
 1.  **Add Module**:
@@ -25,15 +29,16 @@ Seamless integration of [Microsoft DocFind](https://github.com/microsoft/docfind
 2.  **Configure Output**:
     Enable the `SearchIndex` output format for your home page:
     ```toml
-    [outputs]
-      home = ["HTML", "RSS", "SearchIndex"]
-
     [outputFormats.SearchIndex]
       mediaType = "application/json"
       baseName = "search"
       isPlainText = true
       notAlternative = true
+    
+    [outputs]
+      home = ["HTML", "RSS", "SearchIndex"]
     ```
+
 
 3.  **Add Partials**:
     Inside your templates (e.g., `baseof.html` or a sidebar partial):
@@ -42,6 +47,9 @@ Seamless integration of [Microsoft DocFind](https://github.com/microsoft/docfind
     ```html
     {{ partial "docfind/head.html" . }}
     ```
+    > [!TIP]
+    > **Custom Styling**: The default styles are minimal. You may need to add your own CSS to match your site's theme (e.g., overriding colors, z-index, or font-family). You can do this by adding a `<style>` block or your own CSS file *after* the `docfind/head.html` partial.
+
     
     *Add Search Bar (Option A: Inline Block)*:
     ```html
@@ -59,12 +67,18 @@ Seamless integration of [Microsoft DocFind](https://github.com/microsoft/docfind
     {{ partial "docfind/scripts.html" . }}
     ```
 
-## Troubleshooting
+4.  **Setup Build Scripts**:
+    The build/indexing scripts are **not** automatically installed by Hugo modules. You must copy them manually:
+    - Download `bin/build.bat` and `bin/build_search.ps1` (for Windows) or `bin/build_search.sh` (for Mac/Linux) from this repo.
+    - Place them in a `bin/` folder in your project root.
 
-### Windows: TLS/SSL Errors
-If you encounter `Could not create SSL/TLS secure channel` when running the build script:
-- The script automatically enforces TLS 1.2 (`[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12`).
-- Ensure your PowerShell is running as Administrator if permissions are an issue.
+
+## Maintenance
+
+To update the module:
+1.  **Fetch Update**: `hugo mod get -u github.com/sharmaprateek/hugo-docfind`
+2.  **Vendor (Optional)**: If you are using vendoring (recommended for stable builds), run `hugo mod vendor`.
+3.  **Rebuild Index**: Run `.\bin\build.bat` to update local assets.
 
 ## Design Decisions
 - **Smart Wrapper**: The build scripts (`build.bat`, `build_search.ps1`) automatically detect if `hugo server` is running to fetch fresh content, or fall back to a static build.
