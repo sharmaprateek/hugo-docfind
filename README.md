@@ -80,7 +80,7 @@ Seamless integration of [Microsoft DocFind](https://github.com/microsoft/docfind
     - Place them in a `bin/` folder in your project root.
 
 
-## Maintenance
+## How to Update
 
 To update the module:
 1.  **Fetch Update**: `hugo mod get -u github.com/sharmaprateek/hugo-docfind`
