@@ -4,7 +4,7 @@
 
 Seamless integration of [Microsoft DocFind](https://github.com/microsoft/docfind) for Hugo sites.
 
-**Author**: [Prateek Sharma](https://www.sharmaprateek.com)
+**Author**: [Prateek Sharma](https://www.sharmaprateek.com) | [Read the Launch Post](https://www.sharmaprateek.com/posts/introducing-hugo-docfind/)
 
 ## Features
 - **High Performance**: WebAssembly-based client-side search.
