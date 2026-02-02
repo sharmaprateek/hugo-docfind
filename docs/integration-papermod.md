@@ -44,6 +44,10 @@ Add these sections to your `hugo.toml`:
   baseName = "search"
   isPlainText = true
   notAlternative = true
+
+[markup.goldmark.parser]
+  attribute = true
+  autoHeadingID = true
 ```
 
 Then fetch the module:

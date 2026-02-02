@@ -1,40 +1,5 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>DocFind Test Site</title>
-    <link>http://localhost:50803/</link>
-    <description>Recent content on DocFind Test Site</description>
-    <generator>Hugo</generator>
-    <language>en</language>
-    <lastBuildDate>Wed, 31 Jan 2024 09:00:00 -0800</lastBuildDate>
-    <atom:link href="http://localhost:50803/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>The Future of Search</title>
-      <link>http://localhost:50803/blog/future/</link>
-      <pubDate>Wed, 31 Jan 2024 09:00:00 -0800</pubDate>
-      <guid>http://localhost:50803/blog/future/</guid>
-      <description>Search is Changing With WebAssembly, we can move search logic to the client. This reduces server load and protects privacy.&#xA;Why DocFind? Rust-powered speed Compact index size Easy integration </description>
-    </item>
-    <item>
-      <title>Installation Guide</title>
-      <link>http://localhost:50803/docs/install/</link>
-      <pubDate>Tue, 30 Jan 2024 10:00:00 -0800</pubDate>
-      <guid>http://localhost:50803/docs/install/</guid>
-      <description>Installation This is a comprehensive guide on how to install the software. It includes steps for:&#xA;Windows Linux macOS detailed Steps Run the installer and follow the on-screen instructions. The DocFind module handles the rest.</description>
-    </item>
-    <item>
-      <title>Hello DocFind</title>
-      <link>http://localhost:50803/hello/</link>
-      <pubDate>Mon, 29 Jan 2024 12:00:00 -0800</pubDate>
-      <guid>http://localhost:50803/hello/</guid>
-      <description>Welcome to DocFind This is a test page for the DocFind integration. It demonstrates how seamless the search experience can be.&#xA;Features Fast WASM based Zero Config </description>
-    </item>
-    <item>
-      <title>Lorem Ipsum Stress Test</title>
-      <link>http://localhost:50803/blog/lorem/</link>
-      <pubDate>Sun, 01 Jan 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:50803/blog/lorem/</guid>
-      <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&#xA;Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>DocFind Test Site</title><link>http://example.org/</link><description>Recent content on DocFind Test Site</description><generator>Hugo</generator><language>en</language><lastBuildDate>Wed, 31 Jan 2024 09:00:00 -0800</lastBuildDate><atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml"/><item><title>The Future of Search</title><link>http://example.org/blog/future/</link><pubDate>Wed, 31 Jan 2024 09:00:00 -0800</pubDate><guid>http://example.org/blog/future/</guid><description>Search is Changing With WebAssembly, we can move search logic to the client. This reduces server load and protects privacy.
+Why DocFind? Rust-powered speed Compact index size Easy integration</description></item><item><title>Installation Guide</title><link>http://example.org/docs/install/</link><pubDate>Tue, 30 Jan 2024 10:00:00 -0800</pubDate><guid>http://example.org/docs/install/</guid><description>Installation This is a comprehensive guide on how to install the software. It includes steps for:
+Windows Linux macOS detailed Steps Run the installer and follow the on-screen instructions. The DocFind module handles the rest.</description></item><item><title>Hello DocFind</title><link>http://example.org/hello/</link><pubDate>Mon, 29 Jan 2024 12:00:00 -0800</pubDate><guid>http://example.org/hello/</guid><description>Welcome to DocFind This is a test page for the DocFind integration. It demonstrates how seamless the search experience can be.
+Features Fast WASM based Zero Config</description></item><item><title>Lorem Ipsum Stress Test</title><link>http://example.org/blog/lorem/</link><pubDate>Sun, 01 Jan 2023 00:00:00 +0000</pubDate><guid>http://example.org/blog/lorem/</guid><description>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</description></item></channel></rss>

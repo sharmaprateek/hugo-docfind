@@ -9,3 +9,7 @@
   baseName = "search"
   isPlainText = true
   notAlternative = true
+
+[markup.goldmark.parser]
+  attribute = true # Enables {.class #id} syntax
+  autoHeadingID = true # Essential for the regex to find IDs

@@ -132,6 +132,33 @@ function testSearchJsonOutput() {
         results.push(fail('href is relative URL', `Got: ${firstEntry.href}`));
     }
 
+    // Test: Deep Linking (Section-Level Indexing)
+    // At least some entries should have '#' in href
+    const hasDeepLinks = data.some(entry => entry.href.includes('#'));
+    if (hasDeepLinks) {
+        results.push(pass('Deep linking detected (href contains #)'));
+    } else {
+        results.push(fail('Deep linking', 'No entries with anchors (#) found. Section splitting might be failing.'));
+    }
+
+    // Test: Section Titles
+    // At least some entries should have ' > ' in title
+    const hasSectionTitles = data.some(entry => entry.title.includes(' > ') || entry.title.includes('\u003e'));
+    if (hasSectionTitles) {
+        results.push(pass('Section titles detected (Title > Section)'));
+    } else {
+        results.push(fail('Section titles', 'No entries with " > " separators found.'));
+    }
+
+    // Test: Content Hygiene (No HTML leakage)
+    const hasHtmlLeak = data.some(entry => entry.body.includes('id="') || entry.body.includes('<h2'));
+    if (!hasHtmlLeak) {
+        results.push(pass('Content is clean (No HTML attribute leakage)'));
+    } else {
+        results.push(fail('Content hygiene', 'Found raw HTML (id="..." or tags) in body content.'));
+    }
+
+
     return results;
 }
 

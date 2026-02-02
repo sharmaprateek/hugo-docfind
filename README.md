@@ -29,6 +29,7 @@ Seamless integration of [Microsoft DocFind](https://github.com/microsoft/docfind
 2.  **Configure Output**:
     Enable the `SearchIndex` output format for your home page:
     ```toml
+
     [outputFormats.SearchIndex]
       mediaType = "application/json"
       baseName = "search"
@@ -37,7 +38,13 @@ Seamless integration of [Microsoft DocFind](https://github.com/microsoft/docfind
     
     [outputs]
       home = ["HTML", "RSS", "SearchIndex"]
+
+    # Required for Deep Linking (generates IDs for headings)
+    [markup.goldmark.parser]
+      attribute = true
+      autoHeadingID = true
     ```
+
 
 
 3.  **Add Partials**:
@@ -84,12 +91,20 @@ To update the module:
 - **Smart Wrapper**: The build scripts (`build.bat`, `build_search.ps1`) automatically detect if `hugo server` is running to fetch fresh content, or fall back to a static build.
 
 ## How Indexing Works
-`docfind` is a **keyword search engine**, not a generic full-text search engine. It optimizes for speed and index size by:
-1.  **Stopwords**: Common words (e.g., "hello", "the", "is") are ignored.
-2.  **Keyword Extraction**: It uses RAKE (Rapid Automatic Keyword Extraction) to select only the top ~8 most relevant keywords from the body content.
-3.  **Title/Category**: These fields are indexed more heavily.
+`docfind` uses **Section-Level Indexing** to provide precise deep links. Instead of indexing entire pages, it breaks content down by `<h2>` headings.
 
-If a word isn't showing up, it's likely a stopword or not considered a "keyword" by the extraction algorithm.
+### Architectural Improvements
+1.  **Deep Linking**: Search results point directly to the relevant section (e.g., `/configuration/#advanced-settings`) rather than the top of the page.
+2.  **Higher Relevance**: Long pages don't dilute search scores. If a keyword appears in a specific section, that section matches strongly.
+3.  **No Dependencies**: Indexing happens entirely within Hugo templates using a "Double Split" technique—no external Node.js or Python scripts required.
+
+### The "Double Split" Logic
+The `index.searchindex.json` template parses content in two steps:
+1.  **Split by `<h2`**: Identifies the start of a content chunk.
+2.  **Split by `</h2>`**: Isolates the header (for extracting ID/Title) from the body content. 
+This ensures HTML attributes don't leak into the searchable text.
+
+Because of this specific logic, `docfind` is a **keyword search engine**, optimized for speed and structure over generic full-text matching. It uses RAKE (Rapid Automatic Keyword Extraction) on the client side to match user queries against these pre-indexed sections.
 
 ## Usage
 
@@ -114,7 +129,7 @@ This will build your site into `public/` and generate the search assets in `stat
 Run the automated test suite to validate the module (requires Node.js):
 
 ```bash
-# Run all 17 tests
+# Run all tests
 npm test
 
 # Run specific test suites
